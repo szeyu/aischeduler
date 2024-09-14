@@ -26,11 +26,11 @@ const TimetableCanvas: React.FC<TimetableCanvasProps> = ({ entries }) => {
   const getBlockColor = (activity: string) => {
     switch (activity.toUpperCase()) {
       case 'LECTURE':
-        return '#FF6B6B'; // Red
+        return '#7A1CAC'; // Purple
       case 'TUTORIAL':
-        return '#4ECDC4'; // Blue
+        return '#AD49E1'; // Light Purple
       default:
-        return '#45B7D1'; // Green
+        return '#EBD3F8'; // Light Pink
     }
   };
 
