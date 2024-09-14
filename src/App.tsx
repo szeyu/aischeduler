@@ -47,6 +47,8 @@ const App: React.FC = () => {
       <div className="container">
         <h1>AI Scheduler</h1>
         <h2>Upload Your CSV from Timeedit</h2>
+        <pre>Maya ▶️ Timeedit ▶️ Universiti Malaya ▶️ Students ▶️ 
+          Timetable Search ▶️ Module Offering ▶️ Download As CSV</pre>
         <CSVUploader onDataProcessed={handleDataProcessed} />
 
         <br />
