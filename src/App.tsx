@@ -49,9 +49,9 @@ const App: React.FC = () => {
         <h2>Upload Your CSV from Timeedit</h2>
         {processedData.length == 0 && (
           <pre>
-            Maya ▶️ Timeedit ▶️ Universiti Malaya ▶️ Students ▶️ 
-            Timetable Search ▶️ Module Offering ▶️ 
-            Add Every Occs of Modules That You Will Take ▶️ 
+            Maya ▶️ Timeedit ▶️ Universiti Malaya ▶️ Students ▶️ {'\n'}
+            Timetable Search ▶️ Module Offering ▶️ {'\n'}
+            Add Every Occs of Modules That You Will Take ▶️ {'\n'}
             Download As CSV ▶️ ssyokuthscheduler ▶️ Upload 🥳
           </pre>
         )}
