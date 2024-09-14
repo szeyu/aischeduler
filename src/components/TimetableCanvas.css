@@ -1,6 +1,6 @@
 .timetable-canvas {
     display: flex;
-    background-color: rgb(182, 132, 140);
+    background-color: #2E073F;
     flex-direction: column;
     width: 100%;
     overflow-x: auto;
