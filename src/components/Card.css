@@ -1,0 +1,73 @@
+/* src/components/Card.css */
+
+.card {
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 250px;
+  height: 200px;
+  background-color: #4e2c50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  background-color: rgb(202, 183, 208);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+  width: 250px;
+  height: 200px;
+}
+
+.card p {
+  margin: 0.5rem 0;
+  text-align: left;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.card p strong {
+  font-weight: 600;
+  color: #ababab;
+  margin-right: 0.5rem;
+}
+
+.card:hover p,
+.card:hover p strong {
+  color: #2a2a2a; /* Darker font color on hover */
+}
+
+/* You can keep this part in your existing CSS file */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.card:hover h3 {
+  color: #2c3e50; /* Darker color for the title on hover */
+}
+
+.delete-icon {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 40px;
+}

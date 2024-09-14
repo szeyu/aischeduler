@@ -1,0 +1,82 @@
+.timetable-canvas {
+    display: flex;
+    background-color: rgb(182, 132, 140);
+    flex-direction: column;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.days-header {
+    display: flex;
+    height: 40px;
+}
+
+.time-label-spacer {
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.day-label {
+    width: 150px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.timetable-content {
+    display: flex;
+    position: relative;
+}
+
+.time-labels {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    flex-shrink: 0;
+    position: absolute;
+    left: 0;
+    top: -50px; /* Adjusted for larger time blocks */
+}
+
+.time-label {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.schedule-grid {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 60px;
+    background-image: 
+        linear-gradient(to right, #ccc 1px, transparent 1px),
+        linear-gradient(to bottom, #ccc 1px, transparent 1px);
+    background-size: 150px 100px; /* Adjusted for larger day columns and time blocks */
+}
+
+.day-column {
+    width: 150px;
+    position: relative;
+    height: 1300px; /* 13 hours * 100px */
+}
+
+.schedule-block {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    border: 3px solid #815077;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schedule-content {
+    font-size: 12px;
+    padding: 4px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
