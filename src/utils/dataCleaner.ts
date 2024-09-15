@@ -10,8 +10,16 @@ function getDayOfWeek(dateString: string): string {
 }
 
 export const cleanData = (data: any[]): ScheduleEntry[] => {
-  // Remove the first four rows
-  const dataRows = data.slice(4);
+  // Find the index of the row that starts with "Begin date"
+  const startIndex = data.findIndex(row => row[0] === "Begin date");
+  console.log("startIndex: " + startIndex);
+
+  if (startIndex === -1) {
+    throw new Error("Could not find 'Begin date' row in the data");
+  }
+
+  // Remove the header rows and get the data rows
+  const dataRows = data.slice(startIndex + 1);
 
   // Initialize an array to store ScheduleEntry objects
   const scheduleEntries: ScheduleEntry[] = [];
