@@ -1,3 +1,5 @@
+/* src/App.css */
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,18 +7,21 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.main-content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.container {
+  flex: 1;
+  max-width: 800px;
+  margin-right: 2rem;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
 
 .toggle-header {
   border: 1px solid #ccc;
@@ -33,7 +38,6 @@
   background-color: #f0f0f0;
 }
 
-
 .slider-container {
   margin-bottom: 15px;
 }
@@ -48,13 +52,13 @@
 }
 
 .combinations-list {
-  margin-left: 10%;
+  margin-right: 10%;
   padding: 20px;
   width: 444px;
-  background-color: rgba(255, 192, 203, 0.5);
+  background-color: rgb(175, 126, 134);
   border-radius: 8px;
-  max-height: 80vh; /* Use viewport height instead of fixed pixels */
-  overflow-y: auto; /* Change to auto instead of scroll */
+  height: 70vh;
+  overflow-y: auto;
 }
 
 .combinations-list h3 {
@@ -84,19 +88,21 @@
   100% { transform: rotate(360deg); }
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+@media (max-width: 940px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .combinations-list{
+    margin: auto;
+  }
+
 }
 
 .card {
