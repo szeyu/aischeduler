@@ -30,7 +30,7 @@ const TimetableCanvas: React.FC<TimetableCanvasProps> = ({ entries }) => {
       case 'TUTORIAL':
         return '#AD49E1'; // Light Purple
       default:
-        return '#EBD3F8'; // Light Pink
+        return '#8E44AD'; // Dark Orchid
     }
   };
 
