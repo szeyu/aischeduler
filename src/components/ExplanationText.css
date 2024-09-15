@@ -1,0 +1,24 @@
+.explanation-text {
+    text-align: justify;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  
+  .explanation-text p {
+    margin-bottom: 15px;
+  }
+  
+  .explanation-text ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .explanation-text li {
+    margin-bottom: 5px;
+  }
+  
+  .explanation-text strong {
+    font-weight: bold;
+  }

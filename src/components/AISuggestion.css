@@ -1,0 +1,57 @@
+.ai-suggestion-container {
+  width: 90%;
+  padding: 20px;
+  background-color: rgb(175, 126, 134);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.ai-suggestion-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.combination-timetable {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+  
+  .advantage-slide {
+    padding: 20px;
+  }
+  
+  .advantage-slide h4, .advantage-slide h5 {
+    margin-bottom: 10px;
+  }
+
+  .advantage-slide h2{
+    font: bold;
+    font-size: 2em;
+    background-color: rgba(250, 235, 215, 0.279);
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .advantage-slide .explanation-text {
+    text-align: justify;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .advantage-slide .explanation-text p {
+    margin-bottom: 15px;
+  }
+
+  .download-button {
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+  }

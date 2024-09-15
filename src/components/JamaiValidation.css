@@ -1,0 +1,44 @@
+.jamai-validation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .jamai-validation input {
+    padding: 10px;
+    background-color: wheat;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .jamai-validation button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .jamai-validation .error {
+    color: rgb(120, 14, 14);
+  }
+  
+  .jamai-signup-link {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.25s;
+    color: #ffffff;
+    background-color: rgb(253, 77, 83);
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  
+  .jamai-signup-link:hover {
+    background-color: #b565ab;
+    color: wheat;
+  }
