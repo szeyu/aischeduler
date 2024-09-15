@@ -23,6 +23,7 @@ const App: React.FC = () => {
     return stored ? JSON.parse(stored) : false;
   });
 
+  // @ts-ignore
   const resetJamaiValidation = () => {
     localStorage.removeItem('isJamaiValidated');
     setIsJamaiValidated(false);
