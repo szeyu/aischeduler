@@ -1,50 +1,68 @@
-# React + TypeScript + Vite
+# AI Scheduler
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI Scheduler is a web application built with Vite, React, and TypeScript to help users manage their schedules efficiently.
 
-Currently, two official plugins are available:
+## Online Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can access the live version of the application at:
+[https://ssyokuthscheduler.vercel.app](https://ssyokuthscheduler.vercel.app)
 
-## Expanding the ESLint configuration
+## Framework
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project is built using:
+- Vite
+- React
+- TypeScript
 
-- Configure the top-level `parserOptions` property like this:
+## Local Development
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+```
+git clone https://github.com/szeyu/aischeduler.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Navigate to the project directory:
 ```
+cd aischeduler
+```
+
+3. Install dependencies:
+```
+npm i
+```
+
+4. Start the development server:
+```
+npm run dev
+```
+
+5. Open your browser and go to `http://localhost:5173`
+
+## Contributing
+
+We welcome contributions from everyone! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information on how to get started.
+
+## License
+
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0). 
+
+You are free to:
+- Fork this repository.
+- Modify and distribute the code.
+- Use the code for commercial purposes.
+
+Under the following conditions:
+- You must disclose the source code of your modified version.
+- You must license your modifications under the same license (AGPL-3.0).
+- If you use this code in a network service, you must make the complete source code available to users of that service.
+
+For more details, see the [LICENSE](LICENSE) file in this repository.
+
+Contributions to this project are welcome and will be governed by the same license.
+
+## Contact
+
+* [Sze Yu Sim](https://linkedin.com/in/szeyusim)
+* [Uthman](https://linkedin.com/in/muhammed-usman-224188134)

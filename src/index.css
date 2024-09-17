@@ -71,6 +71,18 @@ h2 {
   font-weight: normal;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+  background-color: beige; /* Optional: adds a light background to the footer */
+  color: #213547;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
