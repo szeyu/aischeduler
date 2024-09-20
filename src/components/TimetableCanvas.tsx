@@ -70,7 +70,7 @@ const TimetableCanvas: React.FC<TimetableCanvasProps> = ({ entries }) => {
                       }}
                     >
                       <div className="schedule-content">
-                        <span>{entry.moduleOffering}</span>
+                        <span>{entry.occurrence}</span>
                         <span>{entry.module}</span>
                         <span>{entry.activity}</span>
                         <span>{entry.room}</span>
