@@ -1,0 +1,44 @@
+/* src/components/OccurrenceGroup.css */
+.occurrence-group {
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  flex: 1 1 calc(10% - 5px);
+  max-width: calc(10% - 5px);
+  transition: all 0.3s ease;
+  min-width: 120px;
+  color: black;
+}
+
+.occurrence-group:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.occurrence-group.selected {
+  border-color: #4CAF50;
+  background-color: #E8F5E9;
+}
+
+.occurrence-group h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.entries-container {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.occurrence-group:hover .entries-container {
+  display: block;
+}

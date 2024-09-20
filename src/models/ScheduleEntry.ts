@@ -4,7 +4,7 @@ export class ScheduleEntry {
     public beginTime: string;
     public endTime: string;
     public module: string;
-    public moduleOffering: string;
+    public occurrence: string;
     public activity: string;
     public room: string;
   
@@ -13,7 +13,7 @@ export class ScheduleEntry {
         beginTime: string,
         endTime: string,
         module: string,
-        moduleOffering: string,
+        occurrence: string,
         activity: string,
         room: string,
     ) {
@@ -21,7 +21,7 @@ export class ScheduleEntry {
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.module = module;
-        this.moduleOffering = moduleOffering;
+        this.occurrence = occurrence;
         this.activity = activity;
         this.room = room;
     }

@@ -1,0 +1,23 @@
+/* src/components/ModuleGroup.css */
+.module-group {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 15px;
+  width: 77%;
+  align-items: center;
+}
+
+.module-group h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: black;
+}
+
+.occurrences-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
