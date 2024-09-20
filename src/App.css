@@ -7,21 +7,6 @@
   text-align: center;
 }
 
-.main-content {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.container {
-  flex: 1;
-  max-width: 800px;
-  margin-right: 2rem;
-}
-
 
 .toggle-header {
   border: 1px solid #ccc;
@@ -38,27 +23,14 @@
   background-color: #f0f0f0;
 }
 
-.slider-container {
-  margin-bottom: 15px;
-}
-
-.slider-container label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.slider-container input {
-  width: 100%;
-}
-
 .combinations-list {
-  margin-right: 10%;
   padding: 20px;
   width: 444px;
   background-color: rgb(175, 126, 134);
   border-radius: 8px;
   height: 70vh;
   overflow-y: auto;
+  margin: auto;
 }
 
 .combinations-list h3 {
@@ -94,21 +66,30 @@
   }
 }
 
-@media (max-width: 940px) {
-  .main-content {
-    flex-direction: column;
-  }
-
-  .combinations-list{
-    margin: auto;
-  }
-
-}
-
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+.module-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.up-button {
+  left: 12%;
+  position: absolute;
+  width: 50px;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.down-button {
+  right: 12%;
+  position: absolute;
+  width: 50px;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
 }

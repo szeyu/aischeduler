@@ -1,6 +1,8 @@
 // src/utils/dfs.ts
 
 import { ScheduleEntry } from '../models/ScheduleEntry';
+import { Node } from '../models/Node';
+
 
 function hasTimeClash(entry1: ScheduleEntry, entry2: ScheduleEntry): boolean {
     if (entry1.day !== entry2.day) return false;
@@ -11,56 +13,82 @@ function hasTimeClash(entry1: ScheduleEntry, entry2: ScheduleEntry): boolean {
     const end2 = new Date(`1970-01-01T${entry2.endTime}`);
 
     return !(end2 <= start1 || start2 >= end1);
-    // return (start1 < end2 && start2 < end1);
 }
 
 function hashCombination(combination: ScheduleEntry[]): string {
     return combination
-        .map(entry => `${entry.module}:${entry.moduleOffering}:${entry.activity}:${entry.day}:${entry.beginTime}:${entry.endTime}`)
+        .map(entry => `${entry.module}:${entry.occurrence}:${entry.activity}:${entry.day}:${entry.beginTime}:${entry.endTime}`)
         .sort()
         .join('|');
 }
 
-export function findCombinations(entries: ScheduleEntry[], maxCombinations: number): ScheduleEntry[][] {
+export function findCombinations(
+    entries: ScheduleEntry[],
+    moduleOrder: string[],
+    selectedOccurrences: { [key: string]: string[] },
+    maxCombinations: number
+): ScheduleEntry[][] {
     const combinations: ScheduleEntry[][] = [];
     const seenCombinations = new Set<string>();
-    const uniqueModules = Array.from(new Set(entries.map(entry => entry.module)));
 
-    function dfs(moduleIndex: number, currentCombination: ScheduleEntry[]) {
+    // Separate modules with and without selected occurrences
+    const modulesWithSelection = moduleOrder.filter(module => selectedOccurrences[module]?.length > 0);
+    const modulesWithoutSelection = moduleOrder.filter(module => !selectedOccurrences[module] || selectedOccurrences[module].length === 0);
+
+    // Combine the arrays, prioritizing modules with selections
+    const orderedModules = [...modulesWithSelection, ...modulesWithoutSelection];
+
+    function dfs(moduleIndex: number, currentNode: Node | null) {
         if (combinations.length === maxCombinations) {
             return;
         }
 
         // Base case: if we've processed all modules
-        if (moduleIndex === uniqueModules.length) {
-            const combinationHash = hashCombination(currentCombination);
-            if (!seenCombinations.has(combinationHash)) {
-                seenCombinations.add(combinationHash);
-                combinations.push([...currentCombination]);
+        if (moduleIndex === orderedModules.length) {
+            if (currentNode) {
+                const combination = currentNode.getPath();
+                const combinationHash = hashCombination(combination);
+                if (!seenCombinations.has(combinationHash)) {
+                    seenCombinations.add(combinationHash);
+                    combinations.push(combination);
+                }
             }
             return;
         }
 
-        const currentModule = uniqueModules[moduleIndex];
+        const currentModule = orderedModules[moduleIndex];
         const moduleEntries = entries.filter(entry => entry.module === currentModule);
-        const uniqueModuleOfferings = Array.from(new Set(moduleEntries.map(entry => entry.moduleOffering)));
+        let occurrencesToTry: string[];
 
-        for (const moduleOffering of uniqueModuleOfferings) {
-            const offeringEntries = moduleEntries.filter(entry => entry.moduleOffering === moduleOffering);
+        if (selectedOccurrences[currentModule] && selectedOccurrences[currentModule].length > 0) {
+            occurrencesToTry = selectedOccurrences[currentModule];
+        } else {
+            // For modules without selected occurrences, try all occurrences
+            occurrencesToTry = Array.from(new Set(moduleEntries.map(entry => entry.occurrence)));
+        }
+
+        for (const occurrence of occurrencesToTry) {
+            const offeringEntries = moduleEntries.filter(entry => entry.occurrence === occurrence);
 
             // Check if all entries in this offering clash with the current combination
-            const hasClash = offeringEntries.some(entry =>
-                currentCombination.some(existingEntry => hasTimeClash(existingEntry, entry))
+            const hasClash = currentNode && offeringEntries.some(entry =>
+                currentNode.getPath().some(existingEntry => hasTimeClash(existingEntry, entry))
             );
 
             if (!hasClash) {
-                // If no clash, add all entries of this offering to the combination and continue
-                dfs(moduleIndex + 1, [...currentCombination, ...offeringEntries]);
+                // If no clash, create a new node and continue
+                const newNode = new Node(offeringEntries, currentNode, currentModule, occurrence);
+                dfs(moduleIndex + 1, newNode);
             }
+        }
+
+        // For modules without selected occurrences, also try skipping them
+        if (!selectedOccurrences[currentModule] || selectedOccurrences[currentModule].length === 0) {
+            dfs(moduleIndex + 1, currentNode);
         }
     }
 
-    dfs(0, []);
+    dfs(0, null);
 
     console.log(`${combinations.length} combinations generated!`);
     return combinations;
