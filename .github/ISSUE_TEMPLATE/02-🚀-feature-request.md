@@ -1,6 +1,6 @@
 ---
 name: 🚀 Feature request
-about: Submit a proposal/request for a new JamAIBase feature
+about: Submit a proposal/request for a new AI Scheduler feature
 title: "[FEAT]"
 labels: "type: enhancement / feature"
 assignees: ""
