@@ -6,10 +6,10 @@
   padding: 10px;
   margin-left: 5px;
   cursor: pointer;
-  flex: 1 1 calc(10% - 5px);
-  max-width: calc(10% - 5px);
+  flex: 1 1 calc(5% - 5px);
+  max-width: calc(5% - 5px);
   transition: all 0.3s ease;
-  min-width: 120px;
+  min-width: 88px;
   color: black;
 }
 
