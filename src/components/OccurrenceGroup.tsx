@@ -15,7 +15,7 @@ const OccurrenceGroup: React.FC<OccurrenceGroupProps> = ({ occurrence, entries, 
       className={`occurrence-group ${isSelected ? 'selected' : ''}`} 
       onClick={onSelect}
     >
-      <h3>Occurrence: {occurrence}</h3>
+      <h3>OCC {occurrence}</h3>
       <div className="entries-container">
         {entries.map((entry, index) => (
           <div key={index} className="entry">

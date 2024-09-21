@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import CSVUploader from './components/CSVUploader';
-import Combination from './components/Combination';
 import AISuggestion from './components/AISuggestion';
 import ModuleList from './components/ModuleList';
 import JamaiValidation from './components/JamaiValidation';
 import { ScheduleEntry } from './models/ScheduleEntry';
 import { findCombinations } from './utils/dfs';
+import CombinationTree from './components/CombinationTree';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './App.css';
@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [moduleOrder, setModuleOrder] = useState<string[]>([]);
   const [selectedOccurrences, setSelectedOccurrences] = useState<{ [key: string]: string[] }>({});
   const [combinations, setCombinations] = useState<(ScheduleEntry[] | null)[]>([]);
-  const maxCombinations= 50;
+  const maxCombinations= 100;
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showAISuggestion, setShowAISuggestion] = useState<boolean>(false);
   const [isJamaiValidated, setIsJamaiValidated] = useState<boolean>(() => {
@@ -59,14 +59,6 @@ const App: React.FC = () => {
         setIsLoading(false);
         handleToast(result.length);
       }, 0);
-  };
-
-  const handleDeleteCombination = (index: number) => {
-    setCombinations(prevCombinations => {
-      const newCombinations = [...prevCombinations];
-      newCombinations[index] = null;
-      return newCombinations;
-    });
   };
   
     const handleDataProcessed = (data: ScheduleEntry[]) => {
@@ -171,18 +163,7 @@ const App: React.FC = () => {
         <br />
 
         {combinations.length > 0 && (
-          <div className="combinations-list">
-            {combinations.map((combination, index) => 
-              combination && (
-                <Combination 
-                  key={index} 
-                  entries={combination} 
-                  index={index} 
-                  onDelete={handleDeleteCombination}
-                />
-              )
-            )}
-          </div>
+          <CombinationTree combinations={combinations.filter((c): c is ScheduleEntry[] => c !== null)} />
         )}
 
         <br />
